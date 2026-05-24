@@ -1,13 +1,13 @@
 // MLModelManager.swift
 // Brabus — On-Device Document Intelligence Assistant
 //
-// Loads BrabusDocumentClassifier.mlmodel and runs on-device inference.
+// Loads BrabusDocumentClassifier.mlpackage and runs on-device inference.
 //
 // HOW TO ADD THE MODEL IN XCODE:
 //   1. Run the Python pipeline:  python convert_to_coreml.py
-//   2. The output file is: ios/Brabus/Models/BrabusDocumentClassifier.mlmodel
+//   2. The output file is: ios/Brabus/Models/BrabusDocumentClassifier.mlpackage
 //   3. Open your Xcode project.
-//   4. Drag BrabusDocumentClassifier.mlmodel into the Project Navigator.
+//   4. Drag BrabusDocumentClassifier.mlpackage into the Project Navigator.
 //   5. In the file inspector panel (right side), check that the Brabus
 //      app target is listed under "Target Membership".
 //   6. Xcode auto-generates a Swift class named BrabusDocumentClassifier.
@@ -58,7 +58,7 @@ final class MLModelManager {
 
     // MARK: - Model
 
-    // TODO: Once you have added BrabusDocumentClassifier.mlmodel to Xcode,
+    // TODO: Once you have added BrabusDocumentClassifier.mlpackage to Xcode,
     // replace the lazy var below with the Xcode-generated class:
     //
     //   private lazy var model: BrabusDocumentClassifier? = {
@@ -66,14 +66,16 @@ final class MLModelManager {
     //   }()
     //
     // The current implementation uses MLModel directly so the project
-    // compiles even before the .mlmodel file is added to Xcode.
+    // compiles even before the .mlpackage file is added to Xcode.
+    // Xcode compiles .mlpackage → .mlmodelc at build time, so we look
+    // for the compiled form first.
     private lazy var model: MLModel? = {
         guard let url = Bundle.main.url(
             forResource: "BrabusDocumentClassifier",
             withExtension: "mlmodelc"
         ) ?? Bundle.main.url(
             forResource: "BrabusDocumentClassifier",
-            withExtension: "mlmodel"
+            withExtension: "mlpackage"
         ) else {
             return nil
         }

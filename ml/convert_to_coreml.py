@@ -14,7 +14,7 @@ How to run:
   python convert_to_coreml.py
 
 Output:
-  ios/Brabus/Models/BrabusDocumentClassifier.mlmodel
+  ios/Brabus/Models/BrabusDocumentClassifier.mlpackage
 
 IMPORTANT — Matching the Swift app:
   The Swift app (DocumentFeatureExtractor.swift + MLModelManager.swift) must:
@@ -44,7 +44,7 @@ PYTORCH_MODEL_PATH = MODELS_DIR / "brabus_document_classifier_pytorch.pt"
 METADATA_PATH = MODELS_DIR / "brabus_pytorch_metadata.json"
 
 IOS_MODELS_DIR = Path(__file__).parent.parent / "ios" / "Brabus" / "Models"
-COREML_OUTPUT_PATH = IOS_MODELS_DIR / "BrabusDocumentClassifier.mlmodel"
+COREML_OUTPUT_PATH = IOS_MODELS_DIR / "BrabusDocumentClassifier.mlpackage"
 
 
 # ---------------------------------------------------------------------------
@@ -209,7 +209,7 @@ def main() -> None:
     print(
         "\nNext step in Xcode:\n"
         "  1. Open your Xcode project (ios/Brabus/).\n"
-        "  2. Drag BrabusDocumentClassifier.mlmodel into the project navigator.\n"
+        "  2. Drag BrabusDocumentClassifier.mlpackage into the project navigator.\n"
         "  3. In the file inspector, make sure 'Target Membership' includes the Brabus app target.\n"
         "  4. Xcode will auto-generate a BrabusDocumentClassifier Swift class.\n"
         "  5. MLModelManager.swift already references this class name.\n"
