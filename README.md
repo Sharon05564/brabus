@@ -326,16 +326,6 @@ Being honest about limitations is part of good engineering:
 
 ---
 
-## Resume Bullets
-
-> These bullets are ready to copy into a resume or LinkedIn profile.
-
-- Built Brabus, a privacy-focused iOS document intelligence app using SwiftUI, Vision OCR, Core ML, and Python-trained classifiers to categorize scanned or pasted documents and extract actionable details on-device.
-- Trained and evaluated document classification models using pandas, NumPy, scikit-learn, PyTorch, precision, recall, F1 score, and confusion matrices across seven document categories.
-- Converted a PyTorch classifier into Core ML format and integrated it into a SwiftUI workflow for offline inference without external AI APIs.
-
----
-
 ## License
 
 This project is an educational prototype. It is not intended for production use.
