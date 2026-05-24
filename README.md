@@ -6,9 +6,11 @@
 
 ## Why I Built This
 
-I'm studying computer science with a focus on machine learning and iOS development, and I wanted to build something that brings those two disciplines together in a way that feels useful and real — not just a toy model predicting flowers.
+I built Brabus to strengthen my skills in applied machine learning and Swift/iOS development by turning a trained model into a working on-device product.
 
-Brabus is my answer to the question: *What would a human-centered, privacy-first AI feature on iPhone actually look like?*
+A lot of beginner ML projects stop at the notebook stage: train a model, print an accuracy score, and move on. I wanted to go further by building the full pipeline — generating data, extracting features, training and evaluating models with scikit-learn and PyTorch, converting a PyTorch model into Core ML, and integrating it into a SwiftUI app.
+
+Brabus reflects the kind of AI/ML work I want to grow into: building intelligent systems that are useful, privacy-conscious, and able to run directly on Apple devices. The project gave me hands-on experience connecting Python-based model development with Swift, Vision OCR, Core ML, and a user-facing iOS interface.
 
 The project was designed to demonstrate the skills Apple and similar companies look for in an AIML internship candidate:
 
