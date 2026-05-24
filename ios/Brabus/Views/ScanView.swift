@@ -15,6 +15,7 @@ import Vision
 struct ScanView: View {
 
     @Binding var selectedTab: ContentView.Tab
+    @EnvironmentObject private var historyStore: HistoryStore
 
     // Photo picker state
     @State private var pickerItem: PhotosPickerItem?
@@ -47,6 +48,9 @@ struct ScanView: View {
                     extractedText: $ocrText,
                     onAnalyze: {
                         showReviewSheet = false
+                        // Push the reviewed text into the shared store so
+                        // AnalyzeView picks it up and auto-runs the analysis.
+                        historyStore.pendingText = ocrText
                         selectedTab = .analyze
                     }
                 )

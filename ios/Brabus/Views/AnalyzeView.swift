@@ -44,6 +44,14 @@ struct AnalyzeView: View {
             } message: {
                 Text("Please enter or paste some document text before analyzing.")
             }
+            // Pick up text forwarded from ScanView's OCR pipeline and
+            // auto-run the analysis so the user sees results immediately.
+            .onChange(of: historyStore.pendingText) { _, pending in
+                guard !pending.isEmpty else { return }
+                documentText = pending
+                historyStore.pendingText = ""   // consume so it doesn't re-trigger
+                runAnalysis()
+            }
         }
     }
 
