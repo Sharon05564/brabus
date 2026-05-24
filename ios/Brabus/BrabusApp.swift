@@ -29,10 +29,6 @@ struct BrabusApp: App {
 final class HistoryStore: ObservableObject {
     @Published private(set) var results: [DocumentAnalysisResult] = []
 
-    /// Text queued from ScanView's OCR pipeline for AnalyzeView to pick up
-    /// and run automatically. Cleared by AnalyzeView after consuming.
-    @Published var pendingText: String = ""
-
     func append(_ result: DocumentAnalysisResult) {
         results.insert(result, at: 0)  // newest first
     }
